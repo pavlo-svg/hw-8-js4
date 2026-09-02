@@ -5,7 +5,7 @@ const listRef = document.querySelector("#bookmarkList");
 let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
 
 function renderList() {
-const markup = bookmarks
+  const markup = bookmarks
     .map((url, index) => {
       return `
         <li>
@@ -21,7 +21,7 @@ btnRef.addEventListener("click", (evt) => {
   const value = inputRef.value.trim();
   if (!value) {
     return;
-  };
+  }
 
   bookmarks.push(value);
   localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
@@ -40,7 +40,6 @@ listRef.addEventListener("click", (evt) => {
 
 renderList();
 
-
 const nameRef = document.querySelector("#username");
 const passwordRef = document.querySelector("#password");
 const buttonRef = document.querySelector("#saveBtn");
@@ -54,9 +53,9 @@ if (savedStorage) {
 buttonRef.addEventListener("click", (evt) => {
   const data = {
     name: nameRef.value,
-    password: passwordRef.value
+    password: passwordRef.value,
   };
   localStorage.setItem("formData", JSON.stringify(data));
   nameRef.value = "";
   passwordRef.value = "";
-})
+});
